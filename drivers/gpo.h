@@ -1,9 +1,9 @@
 #include <inttypes.h>
 class GpoCore{
-
     enum {
         DATA_REG = 0
     };
+
 public:
     GpoCore(uint32_t core_base_add);
     ~GpoCore();
