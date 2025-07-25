@@ -5,7 +5,8 @@
 
 TimerCore::TimerCore(uint32_t core_base_addr) {
     base_addr = core_base_addr;
-    ctrl = 0;
+    ctrl = 0x01;
+    io_write(base_addr, CTRL_REG, ctrl);
 }
 
 TimerCore::~TimerCore() {}
@@ -21,6 +22,8 @@ void TimerCore::go(){
 }
 
 void TimerCore::clear(){
+    //in clear hardware, makes the clear bit 1 for one clock cycle, then again makes it 0;
+    //dont have to manually set it to 0
     uint32_t w_data = ctrl | CLR;
     io_write(base_addr,CTRL_REG,w_data);
 }
