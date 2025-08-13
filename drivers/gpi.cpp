@@ -8,7 +8,7 @@ GpiCore::GpiCore(uint32_t core_base_addr){
 }
 
 uint32_t GpiCore::read(){
-    return io_read(base_addr,DATA_REG);
+    return io_read(base_addr,DATA_REG);//*(volatile int *p)((base_addr) + 4U*DATA_REG)
 }
 
 int GpiCore::read(int bit_pos){

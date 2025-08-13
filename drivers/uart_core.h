@@ -30,8 +30,8 @@ public:
     void set_baud_rate(int baud);
 
     // Status checks
-    bool rx_fifo_empty() const;
-    bool tx_fifo_full() const;
+    int rx_fifo_empty();
+    int tx_fifo_full();
 
     // Data transfer
     void tx_byte(uint8_t byte);
